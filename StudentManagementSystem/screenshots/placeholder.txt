@@ -1,0 +1,1 @@
+Put screenshots (login.png, dashboard.png, add_student.png, view_students.png) here.

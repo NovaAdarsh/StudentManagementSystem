@@ -1,0 +1,1 @@
+Place your JDBC connector jar (e.g. mysql-connector-java.jar) in this folder.
