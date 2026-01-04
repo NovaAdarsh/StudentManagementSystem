@@ -10,15 +10,24 @@ CodeNest
 ## Description
 Student Management System is a desktop-based Java application developed using Java Swing and JDBC with MySQL.  
 It allows users to manage student records through a simple graphical interface while demonstrating core Java and OOP concepts.
-
 ## Features
-- Login Authentication (admin / admin)
-- Add Student
-- View Students
-- Update Student
-- Delete Student
-- Input Validation
-- Error Handling
+### ✅ Login System
+  * Default credentials: admin/admin
+  * Authenticates user to access dashboard
+
+### ✅ Add Student
+  * Add new student with Name, Age, Course, Email
+
+### ✅ View Students
+  * Displays all students in a table
+
+### ✅ Delete Student
+  * Delete student entry from table instantly
+
+### ✅ Update Student
+  * Update existing student details by ID
+
+
 
 ## Technologies Used
 - Java
