@@ -1,96 +1,49 @@
-# Student Management System — Java GUI + JDBC
+# Student Management System
 
-### **Team Name:** CodeNest  
-### **Team Members:**  
-- **Adarsh**  
-- **Divyank Kumar**
+## Team Name
+CodeNest
 
----
+## Team Members
+- Adarsh  
+- Divyank Kumar  
 
-## 📌 Project Overview
+## Description
+Student Management System is a desktop-based Java application developed using Java Swing and JDBC with MySQL.  
+It allows users to manage student records through a simple graphical interface while demonstrating core Java and OOP concepts.
 
-**Student Management System** is a desktop-based Java application built using **Java Swing (GUI)** and **JDBC** for database connectivity.  
-It allows institutes to manage student records efficiently with a simple, user-friendly interface.
+## Features
+- Login Authentication (admin / admin)
+- Add Student
+- View Students
+- Update Student
+- Delete Student
+- Input Validation
+- Error Handling
 
-This project demonstrates:
-- Core Java concepts  
-- OOP principles  
-- GUI development  
-- JDBC-based CRUD operations  
-- Layered architecture  
+## Technologies Used
+- Java
+- Swing (GUI)
+- MySQL
+- JDBC
 
----
+## Project Structure
+src/
+├── db/DBConnection.java
+├── dao/StudentDAO.java
+├── model/Student.java
+├── ui/
+│ ├── LoginFrame.java
+│ ├── MainDashboard.java
+│ ├── AddStudentFrame.java
+│ ├── ViewStudentFrame.java
+│ └── UpdateStudentFrame.java
+└── Main.java
 
-## 🎯 Features
-
-### ✅ Login System
-- Default credentials: **admin/admin**
-- Authenticates user to access dashboard
-
-### ✅ Add Student
-- Add new student with Name, Age, Course, Email
-
-### ✅ View Students
-- Displays all students in a table
-- Auto-refresh supported
-
-### ✅ Delete Student
-- Delete student entry from table instantly
-
-### ⏳ (Optional for future)
-- Update Student functionality
-
----
-
-## 🛠 Tech Stack
-
-| Component | Technology |
-|----------|------------|
-| Programming Language | Java 8+ |
-| GUI Framework | Swing |
-| Database | MySQL |
-| Connectivity | JDBC |
-| Build/Run | Any IDE or Command-line |
-
----
-
-## 📁 Project Structure
-
-StudentManagementSystem/
-├── src/
-│ ├── db/DBConnection.java
-│ ├── model/Student.java
-│ ├── dao/StudentDAO.java
-│ ├── ui/
-│ │ ├── LoginFrame.java
-│ │ ├── MainDashboard.java
-│ │ ├── AddStudentFrame.java
-│ │ ├── ViewStudentFrame.java
-│ │ └── UpdateStudentFrame.java
-│ └── Main.java
-├── resources/
-│ ├── schema.sql
-│ └── app.properties
-├── lib/
-│ └── (Place JDBC driver jar here)
-├── screenshots/
-│ └── (Add UI screenshots here)
-├── .gitignore
-└── README.md
-
-yaml
-Copy code
-
----
-
-## 🗄️ Database Setup
-
-Run the following SQL script in MySQL:
-
-CREATE DATABASE IF NOT EXISTS studentdb;
+## Database Setup
+CREATE DATABASE studentdb;
 USE studentdb;
 
-CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE students (
 id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(100),
 age INT,
@@ -98,61 +51,15 @@ course VARCHAR(100),
 email VARCHAR(100)
 );
 
-INSERT INTO students(name, age, course, email)
-VALUES ('Demo User', 20, 'Java', 'demo@gmail.com');
+## How to Run
+1. Install JDK and MySQL
+2. Run the database script
+3. Update database credentials in DBConnection.java
+4. Add MySQL JDBC driver to project
+5. Run Main.java
 
-markdown
-Copy code
+## Screenshots
+Screenshots of Login, Dashboard, Add Student, View Students, and Update Student are included in the screenshots folder.
 
----
-
-## ▶️ How to Run the Project
-
-1. Install Java (JDK 8 or above)  
-2. Install MySQL  
-3. Run `resources/schema.sql` to create database  
-4. Update `DBConnection.java` with your MySQL username/password  
-5. Add `mysql-connector-java.jar` to `lib/`  
-6. Compile and run:  
-   - Using IDE (IntelliJ/Eclipse/NetBeans), OR  
-   - Via terminal:  
-     ```
-     javac -d out -sourcepath src src/Main.java
-     java -cp out;lib/mysql-connector-java.jar Main
-     ```
-
-**Login Credentials:**  
-Username: admin
-Password: admin
-
-yaml
-Copy code
-
----
-
-## 🖼 Screenshots
-
-Add the following screenshots inside the `/screenshots` folder:
-- login.png  
-- dashboard.png  
-- add_student.png  
-- view_students.png  
-
-These visuals improve your marks.
-
----
-
-## 🎓 Academic Purpose
-
-This project is created for academic submission to demonstrate:
-- Java OOP  
-- GUI development  
-- JDBC database operations  
-- Proper project structure and documentation  
-
----
-
-## 👨‍💻 Developed By — *Team CodeNest*
-
-- **Adarsh**  
-- **Divyank Kumar**
+## Purpose
+This project is developed for academic and hackathon submission to demonstrate Java GUI and JDBC-based CRUD operations.
