@@ -6,52 +6,57 @@ import model.Student;
 
 public class UpdateStudentFrame extends JFrame {
 
-    private JTextField txtId, txtName, txtAge, txtCourse, txtEmail;
-    private JButton btnUpdate;
+    private JTextField idF, nameF, ageF, courseF, emailF;
 
     public UpdateStudentFrame() {
         setTitle("Update Student");
-        setSize(350, 300);
+        setSize(350, 350);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        JLabel lblId = new JLabel("ID:");
-        JLabel lblName = new JLabel("Name:");
-        JLabel lblAge = new JLabel("Age:");
-        JLabel lblCourse = new JLabel("Course:");
-        JLabel lblEmail = new JLabel("Email:");
+        JLabel idL = new JLabel("Student ID:");
+        idL.setBounds(20, 20, 100, 25);
+        add(idL);
 
-        txtId = new JTextField();
-        txtName = new JTextField();
-        txtAge = new JTextField();
-        txtCourse = new JTextField();
-        txtEmail = new JTextField();
+        idF = new JTextField();
+        idF.setBounds(130, 20, 180, 25);
+        add(idF);
 
-        btnUpdate = new JButton("Update");
+        JLabel nameL = new JLabel("Name:");
+        nameL.setBounds(20, 60, 100, 25);
+        add(nameL);
 
-        lblId.setBounds(20, 20, 80, 25);
-        txtId.setBounds(120, 20, 180, 25);
+        nameF = new JTextField();
+        nameF.setBounds(130, 60, 180, 25);
+        add(nameF);
 
-        lblName.setBounds(20, 55, 80, 25);
-        txtName.setBounds(120, 55, 180, 25);
+        JLabel ageL = new JLabel("Age:");
+        ageL.setBounds(20, 100, 100, 25);
+        add(ageL);
 
-        lblAge.setBounds(20, 90, 80, 25);
-        txtAge.setBounds(120, 90, 180, 25);
+        ageF = new JTextField();
+        ageF.setBounds(130, 100, 180, 25);
+        add(ageF);
 
-        lblCourse.setBounds(20, 125, 80, 25);
-        txtCourse.setBounds(120, 125, 180, 25);
+        JLabel courseL = new JLabel("Course:");
+        courseL.setBounds(20, 140, 100, 25);
+        add(courseL);
 
-        lblEmail.setBounds(20, 160, 80, 25);
-        txtEmail.setBounds(120, 160, 180, 25);
+        courseF = new JTextField();
+        courseF.setBounds(130, 140, 180, 25);
+        add(courseF);
 
-        btnUpdate.setBounds(120, 200, 100, 30);
+        JLabel emailL = new JLabel("Email:");
+        emailL.setBounds(20, 180, 100, 25);
+        add(emailL);
 
-        add(lblId); add(txtId);
-        add(lblName); add(txtName);
-        add(lblAge); add(txtAge);
-        add(lblCourse); add(txtCourse);
-        add(lblEmail); add(txtEmail);
+        emailF = new JTextField();
+        emailF.setBounds(130, 180, 180, 25);
+        add(emailF);
+
+        JButton btnUpdate = new JButton("Update Student");
+        btnUpdate.setBounds(110, 230, 140, 30);
         add(btnUpdate);
 
         btnUpdate.addActionListener(e -> updateStudent());
@@ -61,11 +66,11 @@ public class UpdateStudentFrame extends JFrame {
 
     private void updateStudent() {
         try {
-            int id = Integer.parseInt(txtId.getText().trim());
-            String name = txtName.getText().trim();
-            int age = Integer.parseInt(txtAge.getText().trim());
-            String course = txtCourse.getText().trim();
-            String email = txtEmail.getText().trim();
+            int id = Integer.parseInt(idF.getText().trim());
+            String name = nameF.getText().trim();
+            int age = Integer.parseInt(ageF.getText().trim());
+            String course = courseF.getText().trim();
+            String email = emailF.getText().trim();
 
             if (name.isEmpty() || course.isEmpty() || email.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields are required");
@@ -79,8 +84,9 @@ public class UpdateStudentFrame extends JFrame {
                 JOptionPane.showMessageDialog(this, "Student updated successfully");
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Update failed");
+                JOptionPane.showMessageDialog(this, "Student ID not found");
             }
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "ID and Age must be numbers");
         }
