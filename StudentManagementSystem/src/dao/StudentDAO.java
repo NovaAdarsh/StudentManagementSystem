@@ -50,4 +50,22 @@ public class StudentDAO {
         } catch(Exception e){ e.printStackTrace(); }
         return false;
     }
+    public boolean updateStudent(Student student) {
+    String query = "UPDATE students SET name=?, age=?, course=?, email=? WHERE id=?";
+    try (Connection con = DBConnection.getConnection();
+         PreparedStatement pst = con.prepareStatement(query)) {
+
+        pst.setString(1, student.getName());
+        pst.setInt(2, student.getAge());
+        pst.setString(3, student.getCourse());
+        pst.setString(4, student.getEmail());
+        pst.setInt(5, student.getId());
+
+        return pst.executeUpdate() > 0;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
 }
