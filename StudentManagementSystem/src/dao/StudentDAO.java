@@ -3,6 +3,10 @@ import db.DBConnection;
 import model.Student;
 import java.sql.*;
 import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import db.DBConnection;
+
 public class StudentDAO {
     public boolean addStudent(Student s) {
         String sql = "INSERT INTO students(name, age, course, email) VALUES (?, ?, ?, ?)";
@@ -67,5 +71,24 @@ public class StudentDAO {
         return false;
     }
 }
+   public boolean updateStudent(Student student) {
+    String sql = "UPDATE students SET name=?, age=?, course=?, email=? WHERE id=?";
+    try (Connection con = DBConnection.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, student.getName());
+        ps.setInt(2, student.getAge());
+        ps.setString(3, student.getCourse());
+        ps.setString(4, student.getEmail());
+        ps.setInt(5, student.getId());
+
+        return ps.executeUpdate() > 0;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+ 
 
 }
